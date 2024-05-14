@@ -14,7 +14,7 @@ export default {
         "bg-dark-primary": "#252734",
         "bg-dark-secondary": "#2a2c39",
     
-        "bg-gray": "#171717",
+        "bg-gray": "#f1f2f3",
         "bg-gray-hover":"#282828",
        
         "border-radius": "0.3rem",
