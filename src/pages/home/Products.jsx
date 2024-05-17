@@ -37,6 +37,35 @@ const Products = () => {
         selectedCategory("all");
     } 
 
+    // sorting functionality 
+
+    const handleSortChange = (option) => {
+        setSortOption(option);
+
+        // logic for sorting
+
+        let sortedItems = [...filteredItems]
+
+        switch (option){
+            case "A-Z" : 
+                sortedItems.sort((a,b)=> a.title.local.localCompare(a.title));
+                break;
+            case "Z-A" :
+                sortedItems.sort((a,b)=> a.title.local.localCompare(a.title));
+                break;
+            case "low-to-high" : 
+                sortedItems.sort((a,b)=> a.price- b.price);
+                break;
+            case "high-low" :
+                sortedItems.sort((a,b)=> b.price- a.price);
+                break;
+            default :
+                break;
+
+        }
+        setFilteredItems(...filteredItems)
+    }
+
 
 
 
@@ -61,7 +90,11 @@ const Products = () => {
                         <div className='bg-black p-2'>
                             <FaFilter className='text-white h-4 w-4' />
                         </div>
-                        <select className='bg-black text-white py-2 px-1 rounded-sm'>
+                        <select className='bg-black text-white py-2 px-1 rounded-sm'
+                            id='sort'
+                            onChange={(e)=> handleSortChange(e.target.value)}
+                            value={sortOption}
+                        >
                             <option value="default">Default</option>
                             <option value="a-z">A-Z</option>
                             <option value="z-a">Z-A</option>
