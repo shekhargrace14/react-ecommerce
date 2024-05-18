@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 // const Cards = ({filteredItems}) => {
 const Cards = ({filteredItems}) => {
@@ -24,5 +25,9 @@ const Cards = ({filteredItems}) => {
     </div>
   )
 }
-
+// Define the propTypes
+Cards.propTypes = {
+    filteredItems: PropTypes.arrayOf(PropTypes.any).isRequired,
+  };
+  
 export default Cards

@@ -48,22 +48,22 @@ const Products = () => {
 
         switch (option){
             case "A-Z" : 
-                sortedItems.sort((a,b)=> a.title.local.localCompare(a.title));
+                sortedItems.sort((a,b)=> a.title.localCompare(b.title));
                 break;
             case "Z-A" :
-                sortedItems.sort((a,b)=> a.title.local.localCompare(a.title));
+                sortedItems.sort((a,b)=> b.title.localCompare(a.title));
                 break;
             case "low-to-high" : 
-                sortedItems.sort((a,b)=> a.price- b.price);
+                sortedItems.sort((a,b)=> a.price - b.price);
                 break;
-            case "high-low" :
-                sortedItems.sort((a,b)=> b.price- a.price);
+            case "high-to-low" :
+                sortedItems.sort((a,b)=> b.price - a.price);
                 break;
             default :
                 break;
 
         }
-        setFilteredItems(...filteredItems)
+        setFilteredItems(sortedItems)
     }
 
 
@@ -96,8 +96,8 @@ const Products = () => {
                             value={sortOption}
                         >
                             <option value="default">Default</option>
-                            <option value="a-z">A-Z</option>
-                            <option value="z-a">Z-A</option>
+                            <option value="A-Z">A-Z</option>
+                            <option value="Z-A">Z-A</option>
                             <option value="low-to-high">Low to High</option>
                             <option value="high-to-low">High to Low </option>
                         </select>
